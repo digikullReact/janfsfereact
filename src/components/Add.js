@@ -3,12 +3,16 @@ import { Input } from 'antd';
 const { TextArea } = Input;
 import { Button } from 'antd';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 
 import { UserOutlined } from '@ant-design/icons';
 import { Row, Col } from 'antd';
 import NoteShow from './NoteShow';
 
 const Add = () => {
+  const {id}=useParams();
+  console.log("Params---",id);
     ///api/notes/fetchallnotes
     const initialData={
       title:"",

@@ -4,7 +4,7 @@ import { Navigate,useLocation } from "react-router-dom";
 const roles=[
     {
         name:"admin",
-        allowedPages:["/add","/show"]
+        allowedPages:["/add","/show","/add/1"]
     },
     {
         name:"user",

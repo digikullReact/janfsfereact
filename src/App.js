@@ -18,6 +18,12 @@ export default function App() {
                 <Add />
               </PrivateRoute>
             } />
+
+<Route path="/add/:id" element={
+              <PrivateRoute>
+                <Add />
+              </PrivateRoute>
+            } />     
       <Route path="/show" element={
               <PrivateRoute>
                 <Show />
