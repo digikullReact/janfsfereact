@@ -4,6 +4,8 @@ import Add from "./components/Add";
 import NoteShow from "./components/NoteShow";
 import Show from "./components/Show";
 import HeaderF from "./components/HeaderF";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
 
 export default function App() {
   return (
@@ -11,8 +13,19 @@ export default function App() {
       <HeaderF/>
      
       <Routes>
-      <Route path="/add" element={<Add/>} />
-      <Route path="/show" element={<Show/>} />
+      <Route path="/add" element={
+              <PrivateRoute>
+                <Add />
+              </PrivateRoute>
+            } />
+      <Route path="/show" element={
+              <PrivateRoute>
+                <Show />
+              </PrivateRoute>
+            } />
+      <Route path="/login" element={<Login/>} />
+
+
 
        {
          /**
@@ -20,6 +33,7 @@ export default function App() {
         <Route path="/login" element={<Login/>} />
           */
        }
+      
        
       </Routes>
     </div>

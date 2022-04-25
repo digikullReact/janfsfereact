@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const { Header } = Layout;
 
 const HeaderF = () => {
+  const token=localStorage.getItem("token")
 const menuItems=[
   {
     "title":"Add",
@@ -19,6 +20,7 @@ const menuItems=[
 ]
 
   return (
+    
     <Header>
     <div className="logo" />
     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
@@ -26,6 +28,11 @@ const menuItems=[
        
         return <Menu.Item key={index}>  <Link to={ele.link}>{ele.title}</Link> </Menu.Item>;
       })}
+
+      {
+        token?
+        <Menu.Item >  <Link to="/logout">Logout</Link> </Menu.Item> :""
+      }
     </Menu>
   </Header>
   )
