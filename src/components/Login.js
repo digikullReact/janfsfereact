@@ -2,11 +2,27 @@ import React,{useState} from 'react'
 import { Form, Input, Button, Checkbox, Row,Col } from 'antd';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import useCopyToClipboard from '../hooks/useCopyToClipboard';
 
 
 
 const Login = () => {
     let navigate = useNavigate();
+     const [isCopied,copyFn]= useCopyToClipboard()
+    const [value,setValue]=useState("");
+    const copyChange=(event)=>{
+
+      setValue(event.target.value);
+
+    }
+
+    const copyTo=()=>{
+      copyFn(value);
+
+
+
+
+    }
 
 
     const onFinish = (values) => {
@@ -74,6 +90,17 @@ const Login = () => {
 
           </Col>
 
+          <input type="text" placeholder='Write Something to copy' onChange={copyChange}/>
+
+
+
+          <Button onClick={copyTo}>
+            Click To Copy
+          </Button>
+
+{
+  isCopied ? <h1>you copied the text</h1> :""
+}
   
           </Row>
  

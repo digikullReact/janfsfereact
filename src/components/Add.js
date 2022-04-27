@@ -11,8 +11,8 @@ import { Row, Col } from 'antd';
 import NoteShow from './NoteShow';
 
 const Add = () => {
-  const {id}=useParams();
-  console.log("Params---",id);
+  const Params=useParams();
+  console.log("Params---",Params);
     ///api/notes/fetchallnotes
     const initialData={
       title:"",

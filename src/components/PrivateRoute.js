@@ -1,4 +1,5 @@
 import { Navigate,useLocation } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 
 const roles=[
@@ -17,8 +18,11 @@ function PrivateRoute({ children }) {
 
 
 
-  //const auth = useAuth();
-  const auth=localStorage.getItem("token");
+  const auth = useAuth();
+
+  //debugger;
+
+
   const role=localStorage.getItem("role");
 
   const routesAssigned=roles.find(ele=>ele.name==role);
@@ -27,7 +31,7 @@ const authorized=routesAssigned?.allowedPages.includes(location.pathname)
 
 
 
-  return (auth && authorized)? children : <Navigate to="/login" />;
+  return (auth())? children : <Navigate to="/login" />;
 }
 
 export default PrivateRoute;

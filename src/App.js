@@ -19,7 +19,7 @@ export default function App() {
               </PrivateRoute>
             } />
 
-<Route path="/add/:id" element={
+<Route path="/add/:id/uu/:data" element={
               <PrivateRoute>
                 <Add />
               </PrivateRoute>
@@ -45,3 +45,5 @@ export default function App() {
     </div>
   );
 }
+
+
